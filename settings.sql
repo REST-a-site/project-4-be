@@ -1,0 +1,3 @@
+CREATE DATABASE resto;
+CREATE USER restouser WITH PASSWORD 'resto';
+GRANT ALL PRIVILEGES ON DATABASE resto TO restouser;
