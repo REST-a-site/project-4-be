@@ -17,7 +17,7 @@ class Menu(models.Model):
 
 class MenuSection(models.Model):
     menu = models.ForeignKey(
-        Menu, on_delete=models.CASCADE)
+        Menu, on_delete=models.CASCADE, related_name='menu_sections')
     section_title = models.CharField(max_length=100)
     section_description = models.TextField(blank=True, null=True)
 
