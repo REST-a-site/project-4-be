@@ -3,10 +3,11 @@ from .models import Menu, MenuSection, MenuItem
 
 
 class MenuSerializer(serializers.HyperlinkedModelSerializer):
-    menu_sections = serializers.HyperlinkedRelatedField(
-        view_name='menu_sections_detail',
+    menu_sections = serializers.SlugRelatedField(
+        # view_name='menu_sections_detail',
         many=True,
-        read_only=True
+        read_only=True,
+        slug_field='section_title'
     )
 
     menu_url = serializers.ModelSerializer.serializer_url_field(
