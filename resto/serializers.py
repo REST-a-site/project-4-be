@@ -2,39 +2,21 @@ from rest_framework import serializers
 from .models import Menu, MenuSection, MenuItem
 
 
-class MenuSerializer(serializers.HyperlinkedModelSerializer):
-    menu_sections = serializers.SlugRelatedField(
-        # view_name='menu_sections_detail',
-        many=True,
-        read_only=True,
-        slug_field='section_title'
-    )
-
-    menu_url = serializers.ModelSerializer.serializer_url_field(
-        view_name='menu_detail'
-    )
+class MenuSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Menu
         fields = ('id', 'menu_title', 'menu_description',
-                  'active', 'menu_sections', 'menu_url')
+                  'active', 'menu_sections',)
+        depth = 1
 
 
-class MenuSectionSerializer(serializers.HyperlinkedModelSerializer):
-    menu = serializers.HyperlinkedRelatedField(
-        view_name='menu_detail',
-        read_only=True
-    )
-
-    menu_id = serializers.PrimaryKeyRelatedField(
-        queryset=Menu.objects.all(),
-        source='menu'
-    )
+class MenuSectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MenuSection
-        fields = ('id', 'section_title',
-                  'section_description', 'menu', 'menu_id')
+        fields = ('id', 'section_title', 'section_description', 'menu_items')
+        depth = 1
 
 
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
