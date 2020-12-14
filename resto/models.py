@@ -33,7 +33,7 @@ class MenuItem(models.Model):
         max_length=200, choices=CHOICES, null=True)
 
     class Meta:
-        verbose_name = "Menu Item"
+        verbose_name_plural = "Menu Item"
 
     def __str__(self):
         return self.item_name
@@ -43,10 +43,10 @@ class Menu(models.Model):
     menu_name = models.CharField(max_length=100)
     menu_description = models.TextField(blank=True, null=True)
     active = models.BooleanField()
-    menu_item_names = models.ManyToManyField(MenuItem)
+    menu_item_names = models.ManyToManyField(MenuItem, null=True, blank=True)
 
     class Meta:
-        verbose_name = "Menu"
+        verbose_name_plural = "Menu"
 
     def __str__(self):
         return self.menu_name
