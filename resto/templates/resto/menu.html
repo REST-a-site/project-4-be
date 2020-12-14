@@ -2,8 +2,14 @@
 
 
 <h1> This is a menu </h1>
-<!-- <ul><a href="{% url 'resos/men' %}"></a> -->
-    {{ menu.title }}
+<p>Menu Details</p>
+   <p>{{ menu.menu_name }}</p> 
+<ul>
+    {% for menu in menus %}
+<li>
+    {{ menu.menu_name }}
+</li>
+    {% endfor %}
 </ul>
     
 {% endblock %}

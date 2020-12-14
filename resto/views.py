@@ -1,4 +1,5 @@
 from rest_framework import generics
+from django.shortcuts import render
 from .serializers import *
 from .models import *
 # Create your views here.
@@ -26,3 +27,7 @@ class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
 # class MenuItem(generics.ListCreateAPIView):
 #     queryset = MenuItem.objects.all()
 #     serializer_class = MenuItemSerializer
+
+def menu_list(request):
+    menus = Menu.objects.all()
+    return render (request, 'resto/menu.html', {'menus': menus})

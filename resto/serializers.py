@@ -3,7 +3,6 @@ from .models import *
 
 
 class MenuSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Menu
         fields = ('id', 'menu_name', 'menu_description',
@@ -20,8 +19,8 @@ class MenuSerializer(serializers.ModelSerializer):
 
 
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
-    menu = serializers.HyperlinkedRelatedField(
-        view_name='menu_detail',
+    menu = MenuSerializer(
+        many=True,
         read_only=True
     )
 

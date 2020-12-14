@@ -4,7 +4,11 @@ from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path('api/menu', views.MenuList.as_view()),
-    path('api/menu/<int:pk>', views.MenuDetail.as_view(), name="menu_detail"),
+    # path('api/menu/<int:pk>', views.MenuDetail.as_view(), name="menu_detail"),
+    path('menu/<int:pk>', views.MenuDetail.as_view()),
+    path('menu/', views.menu_list, name='menu')
+
+    
     # path('api/menu_sections', views.MenuSectionList.as_view(), name='menu_sections_list'),
     # Menu is searching for a function in views.py
     # path('api/menu_sections/<int:pk>', views.MenuSectionDetail.as_view(), name='menu_sections_detail'),
