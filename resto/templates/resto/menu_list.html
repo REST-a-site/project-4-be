@@ -1,14 +1,17 @@
 {% extends 'resto/base.html'%} {% block content %} 
 
-
-<h1> This is a menu </h1>
 <p>Menu Details</p>
-   <p>{{ menu.menu_name }}</p> 
 <ul>
     {% for menu in menus %}
-<li>
-    {{ menu.menu_name }}
-</li>
+    <li>
+        {{ menu.menu_name }}
+    </li>
+    <ul>
+        <li>
+            {{ menu.menu_item_names.item_name }}
+        </li>
+    </ul>
+
     {% endfor %}
 </ul>
     

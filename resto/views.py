@@ -4,12 +4,9 @@ from .serializers import *
 from .models import *
 # Create your views here.
 
-
 class MenuList(generics.ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-
-
 class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
@@ -18,7 +15,6 @@ class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
 # class MenuSectionList(generics.ListCreateAPIView):
 #     queryset = MenuSection.objects.all()
 #     serializer_class = MenuSectionSerializer
-
 
 # class MenuSectionDetail(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = MenuSection.objects.all()
@@ -29,5 +25,9 @@ class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
 #     serializer_class = MenuItemSerializer
 
 def menu_list(request):
-    menus = Menu.objects.all()
-    return render (request, 'resto/menu.html', {'menus': menus})
+    jeff = Menu.objects.all()
+    # print(jeff)
+    return render (request, 'resto/menu_list.html', {'menus': jeff})
+
+    #on line 33 the string is the key and menus is the object
+    # The actual data object is the second argument on 34, which matches the varibale for the objects.all()
