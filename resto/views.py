@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import MenuSerializer, MenuSectionSerializer
-from .models import Menu, MenuSection, MenuItem
+from .serializers import *
+from .models import *
 # Create your views here.
 
 
@@ -14,14 +14,14 @@ class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = MenuSerializer
 
 
-class MenuSectionList(generics.ListCreateAPIView):
-    queryset = MenuSection.objects.all()
-    serializer_class = MenuSectionSerializer
+# class MenuSectionList(generics.ListCreateAPIView):
+#     queryset = MenuSection.objects.all()
+#     serializer_class = MenuSectionSerializer
 
 
-class MenuSectionDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = MenuSection.objects.all()
-    serializer_class = MenuSectionSerializer
+# class MenuSectionDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = MenuSection.objects.all()
+#     serializer_class = MenuSectionSerializer
 
 # class MenuItem(generics.ListCreateAPIView):
 #     queryset = MenuItem.objects.all()
