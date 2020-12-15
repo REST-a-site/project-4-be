@@ -2,18 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
-# class MenuSection(models.Model):
-#     section_name = models.CharField(max_length=100)
-#     section_description = models.TextField(blank=True, null=True)
-
-#     class Meta:
-#         verbose_name = "Menu Section"
-
-#     def __str__(self):
-#         return self.section_name
-
-
 class MenuItem(models.Model):
     CHOICES = (
         ('Appetizers', 'Appetizers'),
