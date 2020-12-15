@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'resto',
-    'users',
+    # 'users',
 ]
 
 MIDDLEWARE = [
@@ -111,14 +111,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # What we'll use for our API
+        'rest_framework.authentication.TokenAuthentication',
+        # What we'll use for the browseable API
         'rest_framework.authentication.SessionAuthentication',
+        # Basic Authentication should be removed in production
         'rest_framework.authentication.BasicAuthentication',
-    ),
+    ],
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 
 CORS_ORIGIN_WHITELIST = (
