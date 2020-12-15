@@ -1,0 +1,1 @@
+web: gunicorn resto_django.wsgi
