@@ -12,6 +12,7 @@ djangorestframework-jwt = "*"
 whitenoise = "*"
 dj-database-url = "*"
 gunicorn = "*"
+djoser = "*"
 
 [dev-packages]
 

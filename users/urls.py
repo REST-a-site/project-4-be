@@ -1,8 +1,10 @@
-from django.urls import path
-from .views import current_user, UserList
+# users/urls.py
+from django.shortcuts import render
 
+from django.urls import path, include
+from users import views
 
 urlpatterns = [
-    path('current_user/', current_user),
-    path('users/', UserList.as_view())
+    path('', include('djoser.urls')),
+    path('', include('djoser.urls.authtoken'))
 ]

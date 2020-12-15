@@ -10,7 +10,7 @@ urlpatterns = [
     path('menu/<int:pk>', views.MenuDetail.as_view()),
     path('menu/', views.menu_list, name='menu'),
     path('menu/details', views.menu_list, name='menu_details'),
-    url(r'^authenticate/', CustomObtainAuthToken.as_view()),
+    # url(r'^authenticate/', CustomObtainAuthToken.as_view()),
 
 
     # path('api/menu_sections', views.MenuSectionList.as_view(), name='menu_sections_list'),
