@@ -20,4 +20,3 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
                   'price', 'item_active')
         depth = 2
 
-# You can instantiate new properties in serializers that are not in the model/dictionary/object
