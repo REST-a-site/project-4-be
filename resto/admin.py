@@ -3,4 +3,4 @@ from .models import *
 
 # Register your models here.
 admin.site.register(MenuItem)
-admin.site.register(Menu)
+admin.site.register(FullMenu)
