@@ -6,13 +6,14 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # Create your views here.
 
+
 class MenuList(generics.ListCreateAPIView):
-    queryset = Menu.objects.all()
-    serializer_class = MenuSerializer
-    permission_classes=[IsAuthenticatedOrReadOnly]
+    queryset = FullMenu.objects.all()
+    serializer_class = FullMenuSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
-class MenuDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Menu.objects.all()
-    serializer_class = MenuSerializer
-    permission_classes=[IsAuthenticatedOrReadOnly]
 
+class FullMenu(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FullMenu.objects.all()
+    serializer_class = FullMenuSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
