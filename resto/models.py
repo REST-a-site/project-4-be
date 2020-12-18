@@ -12,13 +12,18 @@ class MenuItem(models.Model):
         ('Large Format Steak', 'Large Format Steak'),
         ('Sides', 'Sides')
     )
-
+    CHOICESTWO = (
+            ('Breakfast', 'Breakfast'),
+            ('Brunch', 'Brunch'),
+            ('Lunch', 'Lunch'),
+            ('Dinner', 'Dinner'),
+        )
     item_name = models.CharField(max_length=100)
     item_description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     item_active = models.BooleanField()
-    menu_sections = models.CharField(
-        max_length=200, choices=CHOICES, null=True)
+    menu_section = models.CharField(max_length=100, choices=CHOICES, null=True)
+    menu_type = models.CharField(max_length=100,choices=CHOICESTWO, null=True)
 
     class Meta:
         verbose_name_plural = "Menu Item"
@@ -28,13 +33,18 @@ class MenuItem(models.Model):
 
 
 class Menu(models.Model):
-    menu_name = models.CharField(max_length=100)
-    menu_description = models.TextField(blank=True, null=True)
+    CHOICES = (
+        ('Breakfast', 'Breakfast'),
+        ('Brunch', 'Brunch'),
+        ('Lunch', 'Lunch'),
+        ('Dinner', 'Dinner'),
+    )
+    menu_type = models.CharField(max_length=100,choices=CHOICES, null=True)
     active = models.BooleanField()
-    menu_item_names = models.ManyToManyField(MenuItem, null=True, blank=True)
+    menu_item_name = models.ManyToManyField(MenuItem, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Menu"
 
     def __str__(self):
-        return self.menu_name
+        return self.menu_type
