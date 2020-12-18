@@ -6,5 +6,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('api/menu', views.MenuList.as_view()),
-    path('api/menu/<int:pk>', views.FullMenu.as_view()),
+    path('api/items/<int:pk>', views.MenuDetail.as_view()),
 ]
