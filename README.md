@@ -7,7 +7,6 @@
 The "Industry", which is comprised primarily of bars and restaurants, often outsource the building of their websites to third party services. With this comes the less than stellar access to update their seasonally changing menu or 86 items for which they no longer have stock to make. Giving control back to restaurant operators was the central motivation of ths project. Using a fake restaurant website, 921Steak, we wanted to create a fullstack application where an operation can login to their website and create, update, and delete menu items as needed. 
 ## Screenshots
 ![Hero Desktop](images/Hero_Desktop.jpg)
-![Hero Mobile](images/Hero_Mobile.jpg)
 ## Tech/Framework Used
 1. Frontend: 
     - React
