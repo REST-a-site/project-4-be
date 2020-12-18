@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class MenuItem(models.Model):
-    CHOICESONE = (
+    CHOICES = (
         ('Appetizers', 'Appetizers'),
         ('Shellfish', 'Shellfish'),
         ('Salads', 'Salads'),
@@ -22,7 +22,7 @@ class MenuItem(models.Model):
     item_description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     item_active = models.BooleanField()
-    menu_section = models.CharField(max_length=100, choices=CHOICESONE, null=True)
+    menu_section = models.CharField(max_length=100, choices=CHOICES, null=True)
     menu_type = models.CharField(max_length=100,choices=CHOICESTWO, null=True)
 
     class Meta:
