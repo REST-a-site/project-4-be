@@ -5,6 +5,6 @@ from django.conf.urls import url
 # from .views import CustomObtainAuthToken
 
 urlpatterns = [
-    path('api/fullmenu/<int:pk>', views.FullMenu.as_view()),
-    path('api/menulist', views.MenuList.as_view()),
+    path('api/menu', views.MenuList.as_view()),
+    path('api/menu/<int:pk>', views.FullMenu.as_view()),
 ]
