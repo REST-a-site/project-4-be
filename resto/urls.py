@@ -6,4 +6,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('api/fullmenu/<int:pk>', views.FullMenu.as_view()),
+    path('api/menulist', views.MenuList.as_view()),
 ]
