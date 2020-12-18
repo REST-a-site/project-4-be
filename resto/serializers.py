@@ -9,6 +9,7 @@ class MenuSerializer(serializers.ModelSerializer):
                   'active', 'menu_item_name')
         depth = 2
 
+
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
     menu = MenuSerializer(
         many=True,
@@ -19,11 +20,4 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
         model = MenuItem
         fields = ('id', 'item_name', 'item_description',
                   'price', 'item_active', 'menu_section', 'menu')
-
-        depth = 2
-
-class FullMenuSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = FullMenu
-        fields = ('id', 'section_name', 'menu_item' )
         depth = 2
