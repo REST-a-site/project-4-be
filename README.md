@@ -1,10 +1,9 @@
 ## 921Steak
-
 ## Maintained
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 ## Motivation:
-The "Industry", which is comprised primarily of bars and restaurants, often outsource the building of their websites to third party services. With this comes the less than stellar access to update their seasonally changing menu or 86 items for which they no longer have stock to make. Giving control back to restaurant operators was the central motivation of ths project. Using a fake restaurant website, 921Steak, we wanted to create a fullstack application where an operation can login to their website and create, update, and delete menu items as needed. 
+Restaurants and bars in the industry often outsource the building of their websites to third party services. With outsourcing comes the less than stellar access to update their seasonally changing menu or 86 items for which they no longer have inventory to make. Giving control back to restaurant operators is the central motivation of 921Steak. 921Steak is a full stack application using React, Django, and Python to create a beautiful looking single page website.  
 ## Screenshots
 ![Hero Desktop](images/Hero_Desktop.jpg)
 ## Tech/Framework Used
@@ -16,36 +15,21 @@ The "Industry", which is comprised primarily of bars and restaurants, often outs
 ## Features
 - Opentable widget integration 
 - Google maps integration (Still in progress)
-## Tests (Updates coming)
-## Installation 
-### Python must be version 3 or greater for installation
-1. Fork and clone this repository 
-2. Navigate into project-4-be
-3. Install pipenv
-`brew pipenv shell`
-4. Install Django
-`pipenv install django`
-5. Install PostgreSQL to connect to Django
-`pipenv install psycopg2-binary`
-6. Check to be sure Postgres is running on your computer
-- For macOS:
-`brew services list`
-- For Linux:
-`service postgresql status`
-7. Create the database:
-`psql -U postgres -f settings.sql`
-8. Migrate the restaurant models to the database
-`python3 manage.py makemigrations`
-`python3 manage.py migrate`
-9. Create a superuser in the root directory:
-`python3 manage.py createsuperuser`
-10. Navigate to localhost:8000/admin to login and populate the database
+## Tests (Updates Coming)
+## Installation (Updates Coming)
+### Requires Python3 or greater for installation
 ## Login Credentials
 - email: admin@admin.admin
 - password: password12
-## Entity-Relationship Diagram 
-![ERD](images/ERDiagram.jpg)
+## Entity Relationship Diagram
+![ER Diagram](images/ERDiagram.jpg)
+## Wireframes
+- Landing Page and below the fold.
+![img012](https://user-images.githubusercontent.com/68978118/101722893-60349280-3a68-11eb-8603-0536a889c664.jpg)
+- Menu Management
+![img014](https://user-images.githubusercontent.com/68978118/101722849-514de000-3a68-11eb-82a9-02d4c360beb2.jpg)
+
 ## Credits
-- Jake Addis
-- Sam Goldstein
-- James Tomassoni
+- [Jake Addis](https://github.com/jake-utk)
+- [Sam Goldstein](https://github.com/samgold2020)
+- [James Tomassoni](https://github.com/jtomassoni)
