@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import *
 
+
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
@@ -18,5 +19,11 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
         model = MenuItem
         fields = ('id', 'item_name', 'item_description',
                   'price', 'item_active', 'menu_section', 'menu')
+
         depth = 2
 
+class FullMenuSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FullMenu
+        fields = ('id', 'section_name', 'menu_item' )
+        depth = 2
