@@ -105,3 +105,36 @@ class MenuItemView(views.APIView):
 
     def delete(self, request, pk):
         MenuItem.objects.delete(pk=pk)
+
+
+# class FullMenuView(views.APIView):
+#     def get_object(self, pk):
+#         try:
+#             return FullMenu.objects.get(pk=pk)
+#         except:
+#             raise Exception('Does not exist')
+
+#     def get(self, request, pk=None):
+#         if pk:
+#             full_menu = self.get_object(pk)
+#             serializer = FullMenuSerializer(full_menu)
+#             return Response(serializer.data)
+#         else:
+#             serializer = FullMenuSerializer(FullMenu.objects.all(), many=True)
+#             return Response(serializer.data)
+
+#     def post(self, request):
+#         serializer = FullMenuSerializer(request.data)
+#         if serializer.is_valid:
+#             serializer.save()
+#             return Response(serializer.data)
+
+#     def put(self, request, pk):
+#         full_menu = self.get_object(pk)
+#         serializer = FullMenuSerializer(full_menu, request)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+
+#     def delete(self, request, pk):
+#         FullMenu.objects.delete(pk=pk)

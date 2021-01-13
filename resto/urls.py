@@ -6,8 +6,10 @@ from django.conf.urls import url
 urlpatterns = [
     path('api/menus', views.MenuView.as_view()),
     path('api/menus/<int:pk>', views.MenuView.as_view()),
-    path('api/sections', views.MenuItemView.as_view()),
+    path('api/sections', views.MenuSectionView.as_view()),
     path('api/sections/<int:pk>', views.MenuSectionView.as_view()),
     path('api/items', views.MenuItemView.as_view()),
     path('api/items/<int:pk>', views.MenuItemView.as_view()),
+    # path('api/full', views.FullMenuView.as_view()),
+    # path('api/full/<int:pk>', views.FullMenuView.as_view()),
 ]

@@ -17,6 +17,18 @@ class Menu(models.Model):
     def __str__(self):
         return self.menu_name
 
+class MenuItem(models.Model):
+    menu_item_name = models.CharField(max_length=100)
+    menu_item_description = models.TextField(blank=True, null=True)
+    menu_item_price = models.DecimalField(
+        max_digits=10, decimal_places=2)
+
+
+    class Meta:
+        verbose_name_plural = "Menu Item"
+
+    def __str__(self):
+        return self.menu_item_name
 
 class MenuSection(models.Model):
     CHOICES = (
@@ -27,7 +39,7 @@ class MenuSection(models.Model):
     menu_section_name = models.CharField(
         max_length=25, choices=CHOICES, null=True)
     menus = models.ManyToManyField(Menu, null=True, blank=True)
-
+    menu_items = models.ManyToManyField(MenuItem, null=True, blank=True)
     class Meta:
         verbose_name_plural = "Menu Section"
 
@@ -35,16 +47,15 @@ class MenuSection(models.Model):
         return self.menu_section_name
 
 
-class MenuItem(models.Model):
-    menu_item_name = models.CharField(max_length=100)
-    menu_item_description = models.TextField(blank=True, null=True)
-    menu_item_price = models.DecimalField(
-        max_digits=10, decimal_places=2)
-    menu_section = models.ForeignKey(
-        MenuSection, on_delete=models.CASCADE, related_name='menu_sections')
 
-    class Meta:
-        verbose_name_plural = "Menu Item"
 
-    def __str__(self):
-        return self.menu_item_name
+# class FullMenu(models.Model):
+#     menu_id = models.ForeignKey(
+#         Menu, on_delete=models.CASCADE, related_name='full_menu')
+#     menu_section_id = models.ForeignKey(
+#         MenuSection, on_delete=models.CASCADE, related_name='full_menu_section')
+#     menu_item_id = models.ForeignKey(
+#         MenuItem, on_delete=models.CASCADE, related_name='full_menu_item')
+
+#     def __str__(self):
+#         return self.menu_id.menu_name
