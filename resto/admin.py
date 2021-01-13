@@ -5,4 +5,3 @@ from .models import *
 admin.site.register(Menu)
 admin.site.register(MenuSection)
 admin.site.register(MenuItem)
-# admin.site.register(FullMenu)

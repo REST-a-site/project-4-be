@@ -25,12 +25,3 @@ class MenuSectionSerializer(serializers.ModelSerializer):
         fields = ('id', 'menu_section_name',
                   'menus', 'menu_items')
 
-
-# class FullMenuSerializer(serializers.ModelSerializer):
-#     menu_id = MenuSerializer(read_only=True)
-#     menu_section_id = MenuSectionSerializer(many=True)
-#     menu_item_id = MenuItemSerializer(many=True)
-
-#     class Meta:
-#         model = FullMenu
-#         fields = ('id', 'menu_id', 'menu_section_id', 'menu_item_id')
