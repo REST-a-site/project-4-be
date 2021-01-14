@@ -5,19 +5,23 @@ from .models import *
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = ('id', 'menu_type',
-                  'active', 'menu_item_name')
-        depth = 2
+        fields = ('id', 'menu_name')
 
 
-class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
-    menu = MenuSerializer(
-        many=True,
-        read_only=True
-    )
+class MenuItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MenuItem
-        fields = ('id', 'item_name', 'item_description',
-                  'price', 'item_active', 'menu_section', 'menu')
-        depth = 2
+        fields = ('id', 'menu_item_name', 'menu_item_description',
+                  'menu_item_price')
+
+
+class MenuSectionSerializer(serializers.ModelSerializer):
+    menus = MenuSerializer(many=True)
+    menu_items = MenuItemSerializer(many=True)
+
+    class Meta:
+        model = MenuSection
+        fields = ('id', 'menu_section_name',
+                  'menus', 'menu_items')
+
