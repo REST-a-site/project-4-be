@@ -2,12 +2,6 @@ from rest_framework import serializers
 from .models import *
 
 
-class MenuSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Menu
-        fields = ('id', 'menu_name')
-
-
 class MenuItemSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -17,11 +11,18 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
 
 class MenuSectionSerializer(serializers.ModelSerializer):
-    menus = MenuSerializer(many=True)
     menu_items = MenuItemSerializer(many=True)
 
     class Meta:
         model = MenuSection
         fields = ('id', 'menu_section_name',
-                  'menus', 'menu_items')
+                  'menu_section_alias', 'menu_items')
 
+
+class MenuSerializer(serializers.ModelSerializer):
+    menu_section_name = MenuSectionSerializer(many=True)
+    menu_section_alias = MenuSectionSerializer(read_only=True)
+
+    class Meta:
+        model = Menu
+        fields = ('id', 'menu_name', 'menu_section_name', 'menu_section_alias')
